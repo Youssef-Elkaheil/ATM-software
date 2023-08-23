@@ -163,6 +163,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def switchPasswordPage(self):
         QtWidgets.QStackedWidget.setCurrentWidget(self.pages,self.password_page)
       
+    # check it the two paswords entered match  
     def checkPassword(self):
         password_line1 = self.findChild(QtWidgets.QLineEdit,"new_password_line")
         password_line2 = self.findChild(QtWidgets.QLineEdit,"re_new_password_line")
@@ -185,7 +186,7 @@ class MainWindow(QtWidgets.QMainWindow):
         QtWidgets.QStackedWidget.setCurrentWidget(self.pages,self.send_page)
         company_label = self.findChild(QtWidgets.QLabel,"company_label")
         company_label.setText(company)
-
+    # check if number is valid and 
     def sendCash(self):
         mobile_lineedit = self.findChild(QtWidgets.QLineEdit,"mobile_lineedit") 
         amount_lineedit = self.findChild(QtWidgets.QLineEdit,"amount_lineedit") 
