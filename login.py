@@ -1,5 +1,6 @@
-from UserWindow import MainWindow
 from PyQt5 import QtWidgets, uic
+
+from UserWindow import MainWindow
 from database import Database
 
 import sys
