@@ -1,0 +1,47 @@
+[
+    {
+        "type": "Withdrawal",
+        "amount": 100,
+        "date": "2024-02-28 01:08"
+    },
+    {
+        "type": "Withdrawal",
+        "amount": 200,
+        "date": "2024-02-28 01:09"
+    },
+    {
+        "type": "Deposit",
+        "amount": 200,
+        "date": "2024-02-28 01:09"
+    },
+    {
+        "type": "Withdrawal",
+        "amount": 500,
+        "date": "2024-02-28 01:09"
+    },
+    {
+        "type": "Withdrawal",
+        "amount": 100,
+        "date": "2024-02-28 01:35"
+    },
+    {
+        "type": "Withdrawal",
+        "amount": 200,
+        "date": "2024-02-28 01:35"
+    },
+    {
+        "type": "Deposit",
+        "amount": 200,
+        "date": "2024-02-28 01:36"
+    },
+    {
+        "type": "Deposit",
+        "amount": 300,
+        "date": "2024-02-28 01:36"
+    },
+    {
+        "type": "Withdrawal",
+        "amount": 100,
+        "date": "2024-02-28 01:49"
+    }
+]

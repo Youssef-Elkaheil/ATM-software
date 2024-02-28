@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>IMT logo.png</file>
+  </qresource>
+  <qresource prefix="images">
+    <file>rfid.png</file>
+    <file>password.png</file>
+  </qresource>
+</RCC>
