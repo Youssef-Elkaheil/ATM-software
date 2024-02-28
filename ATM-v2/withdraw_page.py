@@ -1,8 +1,8 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 from accounts import Account
-from helper import ShowMessage, send_email
-import datetime
+from helper import ShowMessage
+
 
 class Withdraw_page(QtWidgets.QWidget):
     def __init__(self, account:Account):
@@ -47,11 +47,7 @@ class Withdraw_page(QtWidgets.QWidget):
             else:
                 self.account.withdraw(self.withdraw_amount)
                 ShowMessage("Thank you for banking with us",QMessageBox.Icon.Information)
-                email_body = f"Your account {self.account.ID} "
-                email_body += f"was debited with EGP {self.withdraw_amount} on "
-                email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
-                email_body += f".\nYour current balance is EGP {self.account.Balance}."
-                send_email(email_body)
+
          
 
 

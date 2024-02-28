@@ -25,7 +25,7 @@ class Database():
         return None
     
     #  if the ID is different from last user research for ID index and return name
-    def getName(self,ID):
+    def getName(self,ID) -> str:
         if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID :
             return self.data[self.lastSearchedUserIndex]['Name']
         else:

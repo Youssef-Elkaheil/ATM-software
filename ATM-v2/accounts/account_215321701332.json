@@ -1,47 +1,47 @@
 [
     {
+        "date": "2024-02-28 01:08",
         "type": "Withdrawal",
-        "amount": 100,
-        "date": "2024-02-28 01:08"
+        "amount": 100
     },
     {
+        "date": "2024-02-28 01:09",
         "type": "Withdrawal",
-        "amount": 200,
-        "date": "2024-02-28 01:09"
+        "amount": 200
     },
     {
+        "date": "2024-02-28 01:09",
         "type": "Deposit",
-        "amount": 200,
-        "date": "2024-02-28 01:09"
+        "amount": 200
     },
     {
+        "date": "2024-02-28 01:09",
         "type": "Withdrawal",
-        "amount": 500,
-        "date": "2024-02-28 01:09"
+        "amount": 500
     },
     {
+        "date": "2024-02-28 01:35",
         "type": "Withdrawal",
-        "amount": 100,
-        "date": "2024-02-28 01:35"
+        "amount": 100
     },
     {
+        "date": "2024-02-28 01:35",
         "type": "Withdrawal",
-        "amount": 200,
-        "date": "2024-02-28 01:35"
+        "amount": 200
     },
     {
+        "date": "2024-02-28 01:36",
         "type": "Deposit",
-        "amount": 200,
-        "date": "2024-02-28 01:36"
+        "amount": 200
     },
     {
+        "date": "2024-02-28 01:36",
         "type": "Deposit",
-        "amount": 300,
-        "date": "2024-02-28 01:36"
+        "amount": 300
     },
     {
+        "date": "2024-02-28 01:49",
         "type": "Withdrawal",
-        "amount": 100,
-        "date": "2024-02-28 01:49"
+        "amount": 100
     }
 ]

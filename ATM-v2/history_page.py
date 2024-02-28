@@ -1,7 +1,7 @@
 from PyQt5 import QtWidgets, uic, QtCore
 from PyQt5.QtWidgets import QTableWidgetItem
 from accounts import Account
-from helper import send_email, ShowMessage
+
 class History_page(QtWidgets.QWidget):
     def __init__(self, account:Account):
         super(History_page,self).__init__()
@@ -18,12 +18,10 @@ class History_page(QtWidgets.QWidget):
         self.sendMail_button = self.findChild(QtWidgets.QPushButton, "send_email_button")
         self.sendMail_button.clicked.connect(self.sendMail)
         
-        
         self.back_button = self.findChild(QtWidgets.QPushButton, "back_button")
-        self.back_button.clicked.connect(self.close)
         
-        self.back_button = self.findChild(QtWidgets.QPushButton, "ok_button")
-        self.back_button.clicked.connect(self.close)
+        self.ok_button = self.findChild(QtWidgets.QPushButton, "ok_button")
+        self.ok_button.clicked.connect(self.backToHomePage)
         
         self.load_transactions()
 
@@ -44,4 +42,7 @@ class History_page(QtWidgets.QWidget):
         self.table.resizeColumnsToContents()
     
     def sendMail(self):
-        body = ""    
+        self.account.send_history_email() 
+        
+    def backToHomePage(self):
+        self.back_button.click()

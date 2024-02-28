@@ -1,5 +1,9 @@
 <RCC>
   <qresource prefix="logo">
+    <file>We_Logo.png</file>
+    <file>vodafone_Logo.png</file>
+    <file>Orange_Logo.png</file>
+    <file>ET_Logo.png</file>
     <file>IMT logo.png</file>
   </qresource>
   <qresource prefix="images">

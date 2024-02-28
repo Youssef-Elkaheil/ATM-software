@@ -38,7 +38,8 @@ class Home_page(QtWidgets.QStackedWidget):
     def ReturnToHomePage(self):
         self.setCurrentIndex(0)
         self.removeWidget(self.selected_option)
-        self.selected_option.destroy()
+        if self.selected_option != None:
+            self.selected_option.destroy()
         self.selected_option = None
     
     def switchToSelectedPage(self, selectedPage):
