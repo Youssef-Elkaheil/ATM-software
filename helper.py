@@ -8,6 +8,7 @@ import datetime
 import os
 
 
+
 # Your ATM project likely has these structures already
 class Transaction:
     def __init__(self, type, amount):
