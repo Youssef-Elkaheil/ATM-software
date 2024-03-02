@@ -68,10 +68,7 @@ class Fawry_page(QtWidgets.QStackedWidget):
     def validate_number(self, mobile_number) -> bool:
         if len(mobile_number) == 11:
             if self.company_unique_digit[self.selected_company] == mobile_number[:3]:
-                if self.account.mobile_number != mobile_number:
-                    return True
-                else:
-                    self.account.showMessage(f"Cann't send money to your mobile number.")    
+                    return True 
             else:
                 self.account.showMessage(f"This number doesn't belong to {self.selected_company}.")
         else:
