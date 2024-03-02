@@ -1,6 +1,0 @@
-<RCC>
-  <qresource prefix="resources">
-    <file>rfid.png</file>
-    <file>password.png</file>
-  </qresource>
-</RCC>

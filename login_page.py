@@ -1,23 +1,38 @@
 from PyQt5 import QtWidgets, uic
-from PyQt5.QtWidgets import QMessageBox
 from database import Database
-from email_response import send_email
-import sys
+import images_rc
+
 import re
 
 class Login_page(QtWidgets.QWidget):
-    def __init__(self, lineEdit, enter_button, feedback_label, instruction_label, image):
-        self.lineEdit =  lineEdit
-        self.enter_button =  enter_button
-        self.feedback_label =  feedback_label
-        self.instruction_label =  instruction_label
-        self.image = image
+    def __init__(self):
+        super(Login_page, self).__init__()
+        uic.loadUi("login_page.ui",self)
+        
+        self.df = Database()
+        self.ID = None
+        self.status = None
+        self.password = None
+        self.password_trials = 0
+        self.login_succeded = False
+        # Find the lineEdit with the name "login_lineEdit"
+        self.lineEdit =  self.findChild(QtWidgets.QLineEdit, 'login_lineEdit')
+        # Find the button with the name "login_enter_button"
+        self.enter_button = self.findChild(QtWidgets.QPushButton, 'login_button')
+        # Find the label with the name "feedback_label"
+        self.feedback_label = self.findChild(QtWidgets.QLabel, 'feedback_label')
+        # Find the label with the name "instruction_label"
+        self.instruction_label = self.findChild(QtWidgets.QLabel, 'login_instruction_label')
+        # Find the label with the name "resource_img_label"
+        self.image = self.findChild(QtWidgets.QLabel, 'resource_img_label')
+        
         QtWidgets.QLabel.setStyleSheet(self.feedback_label,"color: red")
         QtWidgets.QLineEdit.setEchoMode(self.lineEdit,QtWidgets.QLineEdit.EchoMode.Normal)
         self.lineEdit.textEdited.connect(self.validate)
         
         self.feedback_label.hide()
         self.enter_button.clicked.connect(self.check_Input)
+        
           
     # accept only numerical values
     def validate(self):
@@ -31,10 +46,10 @@ class Login_page(QtWidgets.QWidget):
         self.ID = None
         self.password = None
         self.password_trials = 0
-        
+        self.login_succeded = False
         self.lineEdit.clear()
 
-        QtWidgets.QLabel.setText(self.instruction_label,"Please enter account number:")
+        QtWidgets.QLabel.setText(self.instruction_label,"Please enter account ID:")
         QtWidgets.QLineEdit.setMaxLength(self.lineEdit,12)
         QtWidgets.QLineEdit.setEchoMode(self.lineEdit,QtWidgets.QLineEdit.EchoMode.Normal)
 
@@ -93,9 +108,8 @@ class Login_page(QtWidgets.QWidget):
             # found
             if self.password == self.lineEdit.text():
                 
-                # TODO open user account
-                self.EnterID()
-
+                self.login_succeded = True
+                
             # not found            
             elif self.password_trials < 2 :
                 

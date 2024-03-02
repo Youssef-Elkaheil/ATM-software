@@ -1,7 +1,5 @@
 import csv
 
-
-
 class Database():
     def __init__(self) -> None:
         
@@ -14,7 +12,7 @@ class Database():
             csvreader = csv.DictReader(file)
             for row in csvreader:
                 self.data.append(row)
-    
+                
     #  return index of user
     def searchForID(self,ID):
         for row in self.data:
@@ -25,7 +23,7 @@ class Database():
         return None
     
     #  if the ID is different from last user research for ID index and return name
-    def getName(self,ID):
+    def getName(self,ID) -> str:
         if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID :
             return self.data[self.lastSearchedUserIndex]['Name']
         else:
@@ -58,9 +56,9 @@ class Database():
     #  if the ID is different from last user research for ID index and return balance
     def getBalance(self,ID):
         if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
-            return self.data[self.lastSearchedUserIndex]['Balance']
+            return int(self.data[self.lastSearchedUserIndex]['Balance'])
         else:
-            return self.data[self.searchForID(ID)]['Balance']
+            return int(self.data[self.searchForID(ID)]['Balance'])
     
     # edit balance of user and updata csv file
     def setBalance(self,ID,newbalnce):
@@ -69,7 +67,8 @@ class Database():
         else:
             self.data[self.searchForID(ID)]['Balance'] = newbalnce
         self.updateDataBase()
-        
+
+     
     #  if the ID is different from last user research for ID index and return status
     def getStatus(self,ID):
         if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
@@ -86,7 +85,38 @@ class Database():
             self.data[self.searchForID(ID)]['Status'] = newStatus
         self.updateDataBase()
 
-        
+    #  if the ID is different from last user research for ID index and return status
+    def getEmail(self,ID):
+        if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
+            return self.data[self.lastSearchedUserIndex]['Email']
+        else:
+            return self.data[self.searchForID(ID)]['Email']
+    
+    # edit Email of user and updata csv file
+    def setEmail(self,ID,newEmail):
+
+        if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
+            self.data[self.lastSearchedUserIndex]['Email'] = newEmail
+        else:
+            self.data[self.searchForID(ID)]['Email'] = newEmail
+        self.updateDataBase()
+
+   #  if the ID is different from last user research for ID index and return status
+    def getMobileNum(self,ID):
+        if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
+            return self.data[self.lastSearchedUserIndex]['MobileNum']
+        else:
+            return self.data[self.searchForID(ID)]['MobileNum']
+    
+    # edit MobileNum of user and updata csv file
+    def setMobileNum(self,ID,newMobileNum):
+
+        if self.lastSearchedUserIndex != None and self.data[self.lastSearchedUserIndex]['ID'] == ID:
+            self.data[self.lastSearchedUserIndex]['MobileNum'] = newMobileNum
+        else:
+            self.data[self.searchForID(ID)]['MobileNum'] = newMobileNum
+        self.updateDataBase()
+            
     # print all data in csv
     def printAllData(self):
         for row in self.data:
@@ -95,7 +125,7 @@ class Database():
     # update csv file
     def updateDataBase(self):
         # header
-        fields = ['ID', 'Name', 'Password', 'Balance', 'Status'] 
+        fields = ['ID', 'Name', 'Password', 'Balance','Email','Mobile', 'Status'] 
 
         with open(self.writefile, 'w', newline='') as file: 
             writer = csv.DictWriter(file, fieldnames = fields)
@@ -118,30 +148,6 @@ class Database():
 def test():
 
     data = Database()
-    
-    print(data.getName("201455998011"))
-    data.setName("201455998011","Youssef Mohamed Youssef")
-    print(data.getName("201455998011"))
-    print()
-    print(data.getPassword("201455998011"))
-    data.setPassword("201455998011","1234")
-    print(data.getPassword("201455998011"))
-    print()
-    print(data.getBalance("201455998011"))
-    data.setBalance("201455998011","9999999999")
-    print(data.getBalance("201455998011"))
-    print()
-    print(data.getStatus("201455998011"))
-    data.setStatus("201455998011","Blocked")
-    print(data.getStatus("201455998011"))
-    
-    data.printAllData()
-    print()
-    data.removeUser("201236787812")
-    data.printAllData()
-    newuser = {'ID':"201236787813",'Name':"test test test",'Password':"1234",'Balance':"123456",'Status':"Blocked"}
-    print()
-    data.addUser(newuser)
-    data.printAllData()
-    
+    print(data.getEmail("201455998011"))
+
 # test()
