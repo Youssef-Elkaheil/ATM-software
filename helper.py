@@ -5,7 +5,7 @@ from email.message import EmailMessage
 from prettytable import PrettyTable
 import smtplib
 import datetime
-
+import os
 
 
 # Your ATM project likely has these structures already
@@ -23,12 +23,12 @@ class Response:
         # Define server , company email
         self.__server.ehlo()
         self.__server.starttls()
-        self.__company_email = 'youssefhussein9880@gmail.com'
         self.__client_email = client_email
         self.__client_name = client_firstname
         
-        # email_password = os.environ.get('EMAIL_PASSWORD')
-        self.__company_email_password = 'msivvuypvxzdexvf'
+        self.__company_email = os.environ.get('EMAIL_ADDRESS')
+        self.__company_email_password = os.environ.get('EMAIL_PASSWORD')
+
         self.__server.login(self.__company_email, self.__company_email_password)
         
         self.table = PrettyTable()
