@@ -22,7 +22,7 @@ if os.getenv("RASPBERRY_PI") is not None:
                         id, text = self.reader.read() 
                         if id:
                             # Emit signal with tag data and strength (optional)
-                            self.tag_read.emit(text, id)  # Adjust strength value as needed
+                            self.tag_read.emit(str(text), str(id))  # Adjust strength value as needed
                     except Exception as e:
                         print(f"Error reading tag: {e}")
                     sleep(0.1)  # Adjust sleep time as needed
