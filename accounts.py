@@ -54,6 +54,7 @@ class Account:
         self.send_withdraw_email(amount, number)
 
     def get_transaction_history(self):
+        self.load_transactions()
         transactions = []
         for transaction in self.transactions:
             try:

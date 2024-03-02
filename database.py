@@ -125,7 +125,7 @@ class Database():
     # update csv file
     def updateDataBase(self):
         # header
-        fields = ['ID', 'Name', 'Password', 'Balance','Email','Mobile', 'Status'] 
+        fields = ['ID', 'Name', 'Password', 'Balance','Status','Email', 'MobileNum'] 
 
         with open(self.writefile, 'w', newline='') as file: 
             writer = csv.DictWriter(file, fieldnames = fields)

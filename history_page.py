@@ -32,12 +32,12 @@ class History_page(QtWidgets.QWidget):
         self.table.setItem(row,column, item)  
           
     def load_transactions(self):
-        
-        for transaction in self.account.transactions:
-            self.table.insertRow(0)
-            self.setTableItem(0, 0, transaction['date'])
-            self.setTableItem(0, 1, transaction['type'])
-            self.setTableItem(0, 2, f"{transaction['amount']}")
+        self.table.clearContents()
+        for transaction in self.account.get_transaction_history():
+            self.table.insertRow(self.table.rowCount())
+            self.setTableItem(self.table.rowCount()-1, 0, transaction['date'])
+            self.setTableItem(self.table.rowCount()-1, 1, transaction['type'])
+            self.setTableItem(self.table.rowCount()-1, 2, f"{transaction['amount']}")
             
         self.table.resizeColumnsToContents()
     

@@ -83,6 +83,7 @@ class Login_page(QtWidgets.QWidget):
         self.cancel_button.hide()
         self.lineEdit.clear()
         if self.is_raspberry_pi:
+            self.rfid_thread.is_running = True
             self.rfid_thread.start()
         QtWidgets.QLabel.setPixmap(self.image
                                    , QtGui.QPixmap(":/images/rfid.png").scaled(500,500))
@@ -102,7 +103,9 @@ class Login_page(QtWidgets.QWidget):
         self.feedback_label.hide()
         self.cancel_button.show()
         if self.is_raspberry_pi:
+            self.rfid_thread.is_running = False
             self.rfid_thread.quit()
+            
         QtWidgets.QLabel.setMargin(self.image, 50)
         self.password_trials = 0
         QtWidgets.QLabel.setPixmap(self.image

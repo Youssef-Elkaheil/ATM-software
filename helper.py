@@ -58,6 +58,7 @@ class Response:
 
         for trasaction in data:
             self.table.add_row([trasaction['date'],trasaction['type'],trasaction['amount']])
+        self.table.reversesort = True
         
         self.text = self.text.format(name=f"{self.__client_name}",
                                     balance=f"{balance}",

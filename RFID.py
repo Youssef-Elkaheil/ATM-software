@@ -8,7 +8,7 @@ if os.getenv("RASPBERRY_PI") is not None:
         from mfrc522 import SimpleMFRC522
         class RFIDThread(QThread):
             # Define a signal to emit tag data and strength
-            tag_read = pyqtSignal(str)
+            tag_read = pyqtSignal(str,str)
 
             def __init__(self):
                 super().__init__()
