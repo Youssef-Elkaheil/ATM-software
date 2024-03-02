@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5 import QtGui
 from accounts import Account
-import sys
 import images_rc
 
 class Fawry_page(QtWidgets.QStackedWidget):
