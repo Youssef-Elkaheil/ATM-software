@@ -52,7 +52,7 @@ class Login_page(QtWidgets.QWidget):
         self.enter_button.clicked.connect(self.check_Input)
         
         
-    def closeEvent(self, a0: QCloseEvent | None) -> None:
+    def closeEvent(self, a0: QCloseEvent ) -> None:
         
         if self.is_raspberry_pi:
             try:
