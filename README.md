@@ -21,13 +21,15 @@ Note, the password shall be shown as stars (*)
 
 • Cash Withdraw 
 
+• Cash Deposit 
+
 • Balance Inquiry
 
 • Password Change
 
 • Fawry Service
 
-• Exi
+• Exit
 
 ## Cash Withdraw
 
