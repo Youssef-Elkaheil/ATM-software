@@ -21,7 +21,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         self.pages.setCurrentWidget(self.login_page)
         self.login_page.enter_button.clicked.connect(self.check_login)
-        self.show()
+        self.showFullScreen()
         
     def check_login(self):
         if self.login_page.login_succeded:
