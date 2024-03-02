@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>367</height>
+    <width>548</width>
+    <height>466</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,12 +20,12 @@
    <string>StackedWidget</string>
   </property>
   <property name="currentIndex">
-   <number>1</number>
+   <number>0</number>
   </property>
   <widget class="QWidget" name="company_page">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="back_button_1">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
         <horstretch>0</horstretch>
@@ -38,7 +38,7 @@
      </widget>
     </item>
     <item row="1" column="3">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="orange_button">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -61,7 +61,7 @@
      </widget>
     </item>
     <item row="3" column="3">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="we_button">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -84,7 +84,7 @@
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="etisalat_button">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -107,7 +107,7 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="vodafone_button">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -133,70 +133,97 @@
   </widget>
   <widget class="QWidget" name="send_mony_page">
    <layout class="QGridLayout" name="gridLayout_2">
-    <item row="15" column="3">
-     <widget class="QPushButton" name="pushButton_7">
-      <property name="text">
-       <string>OK</string>
+    <item row="15" column="4">
+     <spacer name="horizontalSpacer_8">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-     </widget>
-    </item>
-    <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton_6">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="text">
-       <string>Back</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="3">
-     <widget class="QLabel" name="label">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="maximumSize">
+      <property name="sizeHint" stdset="0">
        <size>
-        <width>170</width>
-        <height>140</height>
+        <width>40</width>
+        <height>20</height>
        </size>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+     </spacer>
+    </item>
+    <item row="8" column="3">
+     <spacer name="verticalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
       </property>
-      <property name="midLineWidth">
-       <number>1</number>
+     </spacer>
+    </item>
+    <item row="15" column="0">
+     <spacer name="horizontalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-      <property name="textFormat">
-       <enum>Qt::AutoText</enum>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
       </property>
-      <property name="pixmap">
-       <pixmap resource="resources/images.qrc">:/logo/ET_Logo.png</pixmap>
+     </spacer>
+    </item>
+    <item row="7" column="0">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-      <property name="scaledContents">
-       <bool>true</bool>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
       </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
+     </spacer>
+    </item>
+    <item row="9" column="0">
+     <spacer name="horizontalSpacer_4">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-      <property name="textInteractionFlags">
-       <set>Qt::NoTextInteraction</set>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
       </property>
-     </widget>
+     </spacer>
+    </item>
+    <item row="2" column="3">
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item row="7" column="3">
-     <widget class="QLineEdit" name="lineEdit">
-      <property name="inputMask">
-       <string>00000000000</string>
+     <widget class="QLineEdit" name="mobile_lineEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
       </property>
       <property name="maxLength">
        <number>11</number>
@@ -212,8 +239,21 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="4">
-     <spacer name="horizontalSpacer">
+    <item row="0" column="0">
+     <widget class="QPushButton" name="back_button_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="4">
+     <spacer name="horizontalSpacer_7">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -225,21 +265,8 @@
       </property>
      </spacer>
     </item>
-    <item row="9" column="3">
-     <widget class="QLineEdit" name="lineEdit_2">
-      <property name="inputMask">
-       <string>0000</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="placeholderText">
-       <string>amount</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <spacer name="horizontalSpacer_2">
+    <item row="7" column="4">
+     <spacer name="horizontalSpacer_6">
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
@@ -277,109 +304,71 @@
       </property>
      </spacer>
     </item>
-    <item row="8" column="3">
-     <spacer name="verticalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+    <item row="9" column="3">
+     <widget class="QLineEdit" name="amount_lineEdit">
+      <property name="maxLength">
+       <number>4</number>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
-     </spacer>
+      <property name="placeholderText">
+       <string>amount</string>
+      </property>
+      <property name="clearButtonEnabled">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
-    <item row="2" column="3">
-     <spacer name="verticalSpacer">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
+    <item row="15" column="3">
+     <widget class="QPushButton" name="ok_button">
+      <property name="text">
+       <string>OK</string>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>40</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
-    <item row="7" column="0">
-     <spacer name="horizontalSpacer_3">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="2" column="4">
+     <widget class="QLabel" name="company_logo">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
-      <property name="sizeHint" stdset="0">
+      <property name="maximumSize">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>170</width>
+        <height>140</height>
        </size>
       </property>
-     </spacer>
-    </item>
-    <item row="9" column="0">
-     <spacer name="horizontalSpacer_4">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
       </property>
-     </spacer>
-    </item>
-    <item row="15" column="0">
-     <spacer name="horizontalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="midLineWidth">
+       <number>1</number>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
+      <property name="textFormat">
+       <enum>Qt::RichText</enum>
       </property>
-     </spacer>
-    </item>
-    <item row="7" column="4">
-     <spacer name="horizontalSpacer_6">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="pixmap">
+       <pixmap resource="resources/images.qrc">:/logo/ET_Logo.png</pixmap>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
-     </spacer>
-    </item>
-    <item row="9" column="4">
-     <spacer name="horizontalSpacer_7">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
+      <property name="margin">
+       <number>0</number>
       </property>
-     </spacer>
-    </item>
-    <item row="15" column="4">
-     <spacer name="horizontalSpacer_8">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+      <property name="textInteractionFlags">
+       <set>Qt::NoTextInteraction</set>
       </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
    </layout>
   </widget>

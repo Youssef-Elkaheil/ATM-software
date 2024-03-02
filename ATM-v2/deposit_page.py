@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 from accounts import Account
-from helper import ShowMessage
 
 class Deposit_page(QtWidgets.QWidget):
     def __init__(self, account:Account):
@@ -20,18 +19,18 @@ class Deposit_page(QtWidgets.QWidget):
         
     def deposit_credit(self):
         if self.lineEdit.text() == "":
-            ShowMessage("Please enter Amount to deposit")
+            self.account.showMessage("Please enter Amount to deposit")
         else:
             self.deposit_amount = int(self.lineEdit.text())
             self.lineEdit.clear()
             
             if self.deposit_amount > 5000:
-                ShowMessage("Maximum allowed value per transaction is 5000 L.E")
+                self.account.showMessage("Maximum allowed value per transaction is 5000 L.E")
             elif self.deposit_amount %100 != 0:
-                ShowMessage("Invalid Value")
+                self.account.showMessage("Invalid Value")
             else:
                 self.account.deposit(self.deposit_amount)
-                ShowMessage("Thank you for banking with us",QMessageBox.Icon.Information)
+                self.account.showMessage("Thank you for banking with us",QMessageBox.Icon.Information)
          
 
 

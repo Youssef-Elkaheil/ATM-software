@@ -1,6 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from database import Database
-import login_rc
+import images_rc
 
 import re
 

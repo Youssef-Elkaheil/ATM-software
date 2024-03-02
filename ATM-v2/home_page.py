@@ -3,14 +3,14 @@ from accounts import Account
 from withdraw_page import Withdraw_page
 from deposit_page import Deposit_page
 from history_page import History_page
+from password_page import Password_page
+from fawry_page import Fawry_page
 
-import sys
 
 class Home_page(QtWidgets.QStackedWidget):
     def __init__(self, ID):
         super(Home_page,self).__init__()
         uic.loadUi("home_page.ui",self)
-        
         self.ID = ID
         self.account = Account(ID)
         self.signout = False
@@ -22,12 +22,12 @@ class Home_page(QtWidgets.QStackedWidget):
         self.balance_inquiry_button = self.findChild(QtWidgets.QPushButton, 'inquiry_page_button')
         self.balance_inquiry_button.clicked.connect(lambda ch,i=History_page(self.account):self.switchToSelectedPage(i))
         self.password_change_button = self.findChild(QtWidgets.QPushButton, 'password_page_button')
-        self.password_change_button.clicked.connect(self.switchPasswordPage)
+        self.password_change_button.clicked.connect(lambda ch,i=Password_page(self.account):self.switchToSelectedPage(i))
         self.fawry_service_button = self.findChild(QtWidgets.QPushButton, 'fawry_page_button')
-        self.fawry_service_button.clicked.connect(self.switchFawryPage)
+        self.fawry_service_button.clicked.connect(lambda ch,i=Fawry_page(self.account):self.switchToSelectedPage(i))
         self.exit_button = self.findChild(QtWidgets.QPushButton, 'exit_button')
         self.exit_button.clicked.connect(self.switchLoginPage)
-        self.show()
+
 
     def configureSelectedOption(self):
         if self.selected_option != None:
@@ -46,8 +46,6 @@ class Home_page(QtWidgets.QStackedWidget):
         self.selected_option =  selectedPage
         self.configureSelectedOption()     
         
-    def switchPasswordPage(self):
-        pass
     def switchFawryPage(self):
         pass
     
@@ -55,7 +53,3 @@ class Home_page(QtWidgets.QStackedWidget):
         # set flag to kill current class
         self.signout = True
         
-    
-app = QtWidgets.QApplication(sys.argv)
-window = Home_page("215321701332")
-app.exec_()

@@ -2,25 +2,20 @@ from PyQt5.QtWidgets import QMessageBox
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.message import EmailMessage
-from tabulate import tabulate
-import smtplib
-import ssl
 from prettytable import PrettyTable
+import smtplib
+import datetime
 
 
-# show error message box
-def ShowMessage(info, icon = QMessageBox.Critical):
-    # for error message : use showErrorMessage method 
-    msg = QMessageBox()
-    msg.setIcon(icon)
-    if icon == QMessageBox.Critical:
-        msg.setWindowTitle("Error")
-    else:
-        msg.setWindowTitle("Info")
-    msg.setText(info + "\t\n")
-    msg.exec_()
-    
-class Server:
+
+# Your ATM project likely has these structures already
+class Transaction:
+    def __init__(self, type, amount):
+        self.date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+        self.type = type
+        self.amount = amount
+
+class Response:
     def __init__(self, client_email, client_firstname) -> None:
 
         self.__server = smtplib.SMTP('smtp.gmail.com:587')
@@ -47,7 +42,7 @@ class Server:
         self.html += "<p>Your current balance : EGP {balance}.<br><br></p>\n\n"
         self.html += "<p>Here is your Transaction History:</p>\n\n"
         self.html += "<p>{table}</p>\n\n<br><br><p>Regards,</p><p>Bank</p></body></html>"
-        
+            
     def send_email(self, email_body):
         em = EmailMessage()
         em['From'] = self.__company_email
@@ -78,4 +73,15 @@ class Server:
         message['To'] = self.__client_email 
         self.__server.sendmail(self.__company_email, self.__client_email , message.as_string())
 
-
+    # show error message box
+    @staticmethod
+    def ShowMessage( info, icon = QMessageBox.Critical):
+        # for error message : use showErrorMessage method 
+        msg = QMessageBox()
+        msg.setIcon(icon)
+        if icon == QMessageBox.Critical:
+            msg.setWindowTitle("Error")
+        else:
+            msg.setWindowTitle("Info")
+        msg.setText(info + "\t\n")
+        msg.exec_()

@@ -1,15 +1,8 @@
+from PyQt5.QtWidgets import QMessageBox
 from database import Database
 import datetime
-from helper import Server
+from helper import Response, Transaction
 import json
-
-
-# Your ATM project likely has these structures already
-class Transaction:
-    def __init__(self, type, amount):
-        self.date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
-        self.type = type
-        self.amount = amount
 
 
 class Account:
@@ -20,9 +13,11 @@ class Account:
         self.Name = self.df.getName(ID)
         self.Balance = self.df.getBalance(ID)
         self.Password = self.df.getPassword(ID)
-        self.email = 'ymohamed9880@gmail.com'
+        self.mobile_number = self.df.getMobileNum(ID)
+        self.email = self.df.getEmail(ID)
+        
         self.__filename = f"accounts/account_{ID}.json"
-        self.__server = Server('ymohamed9880@gmail.com',self.Name.split()[0])
+        self.__response = Response(self.email, self.Name.split()[0])
         self.load_transactions()
 
     def load_transactions(self):
@@ -50,13 +45,13 @@ class Account:
         self.df.setBalance(self.ID,self.Balance)
         self.send_deposit_email(amount)
 
-    def withdraw(self, amount:int):
+    def withdraw(self, amount:int, number=None):
         
         self.transactions.append(Transaction("Withdrawal",amount))
         self.save_transactions()
         self.Balance -= amount
         self.df.setBalance(self.ID,self.Balance)
-        self.send_withdraw_email(amount)
+        self.send_withdraw_email(amount, number)
 
     def get_transaction_history(self):
         transactions = []
@@ -67,19 +62,44 @@ class Account:
                 transactions.insert(0,{'date':transaction.date,'type':transaction.type,'amount':transaction.amount})
         return transactions
     
-    def send_withdraw_email(self, amount):
-        email_body = f"Your account {self.ID} "
-        email_body += f"was debited with EGP {amount} on "
-        email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
-        email_body += f".\nYour current balance is EGP {self.Balance}."
-        self.__server.send_email(email_body)
+    def send_withdraw_email(self, amount, number=None):
+        if number == None:
+            email_body = f"Your account {self.ID} "
+            email_body += f"was debited with EGP {amount} on "
+            email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
+            email_body += f".\nYour current balance is EGP {self.Balance}."
+        else:
+            email_body = f"EGP {amount} was sent from your account "
+            email_body += f"{self.ID} to {number} on "
+            email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
+            email_body += f".\nYour current balance is EGP {self.Balance}."
+            
+        self.__response.send_email(email_body)
         
     def send_deposit_email(self, amount):
         email_body = f"Your account {self.ID} "
         email_body += f"was credited with EGP {amount} on "
         email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
         email_body += f".\nYour current balance is EGP {self.Balance}."
-        self.__server.send_email(email_body)
+        self.__response.send_email(email_body)
         
     def send_history_email(self):
-        self.__server.send_history(self.Balance,self.get_transaction_history())
+        self.__response.send_history(self.Balance,self.get_transaction_history())
+    
+    def send_password_change_email(self):
+        email_body =  f"Your account {self.ID} password "
+        email_body += f"has been changed in "
+        email_body += datetime.datetime.now().strftime("%d/%m %H:%M")
+        email_body += f".\nIf it's not you please contact the bank as soon as possible."
+        self.__response.send_email(email_body)
+    
+    def showMessage(self, info, icon = QMessageBox.Critical):
+        self.__response.ShowMessage(info, icon)
+    
+    def changePassword(self,new_password):
+    
+        self.df.setPassword(self.ID, new_password)
+        self.Password = new_password
+        self.send_password_change_email()
+            
+            

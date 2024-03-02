@@ -1,7 +1,6 @@
 from PyQt5 import QtWidgets, uic
 from PyQt5.QtWidgets import QMessageBox
 from accounts import Account
-from helper import ShowMessage
 
 
 class Withdraw_page(QtWidgets.QWidget):
@@ -33,20 +32,20 @@ class Withdraw_page(QtWidgets.QWidget):
         
     def withdraw_credit(self):
         if self.lineEdit.text() == "":
-            ShowMessage("Please enter Amount to withdraw")
+            self.account.showMessage("Please enter Amount to withdraw")
         else:
             self.withdraw_amount = int(self.lineEdit.text())
             self.lineEdit.clear()
             
             if self.withdraw_amount > 5000:
-                ShowMessage("Maximum allowed value per transaction is 5000 L.E")
+                self.account.showMessage("Maximum allowed value per transaction is 5000 L.E")
             elif self.withdraw_amount > self.account.Balance:
-                ShowMessage("No sufficient balance")
+                self.account.showMessage("No sufficient balance")
             elif self.withdraw_amount %100 != 0:
-                ShowMessage("Invalid Value")
+                self.account.showMessage("Invalid Value")
             else:
                 self.account.withdraw(self.withdraw_amount)
-                ShowMessage("Thank you for banking with us",QMessageBox.Icon.Information)
+                self.account.showMessage("Thank you for banking with us",QMessageBox.Icon.Information)
 
          
 
