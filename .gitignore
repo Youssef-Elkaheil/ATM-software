@@ -1,4 +1,7 @@
 ./__pycache__
 ./data.csv
 ./accounts
+*.pyc
+*.csv
+*.json
 
