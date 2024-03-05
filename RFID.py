@@ -12,10 +12,19 @@ if os.getenv("RASPBERRY_PI") is not None:
 
             def __init__(self):
                 super().__init__()
-                self.reader = SimpleMFRC522()
                 self.is_running = True
 
             def run(self):
+                # Initialize with retry loop
+                while True:
+                    try:
+                        self.reader = SimpleMFRC522()
+                        break  # Break loop if successful
+                    except Exception as e:
+                        print(f"Error initializing RFID reader: {e}")
+                        print("Retrying...")
+                        sleep(1)  # Adjust retry wait time as needed
+
                 while self.is_running:
                     try:
                         # Read data from the RFID reader
