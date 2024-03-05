@@ -4,3 +4,5 @@ accounts
 *.pyc
 *.csv
 *.json
+setEmail.sh
+startATM.sh

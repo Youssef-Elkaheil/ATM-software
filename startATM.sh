@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source ~/Desktop/setEmail.sh
+source ./setEmail.sh
 
+# set project absolute location
 cd ~/Desktop/ATM-software/
 
 # uncomment when using raspberry pi
